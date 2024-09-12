@@ -33,9 +33,10 @@ public class JavaQuestionService implements QuestionService{
 
     @Override
     public Question remove(Question question) {
-        questions.removeIf(e -> e.getQuestion().equals(question));
-        throw new QuestionNotFound();
-
+        if (question != null) {
+            questions.remove(question);
+        }else throw new QuestionNotFound();
+        return question;
     }
 
     @Override
@@ -44,10 +45,10 @@ public class JavaQuestionService implements QuestionService{
     }
 
     @Override
-    public Question getRandomQuestion(int number) {
+    public Question getRandomQuestion() {
         Random random = new Random();
-        String result = String.valueOf(random.nextInt( number- 1));
-        return null;
+        String result = String.valueOf(random.nextInt( questions.size()- 1));
+        return getRandomQuestion();
 
     }
 }
