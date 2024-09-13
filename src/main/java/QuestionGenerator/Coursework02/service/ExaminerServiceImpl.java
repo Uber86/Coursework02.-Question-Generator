@@ -10,7 +10,7 @@ import java.util.*;
 public class ExaminerServiceImpl implements ExaminerService {
 
     Random random;
-    private QuestionService questionService;
+    private final QuestionService questionService;
 
     public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;
@@ -18,13 +18,18 @@ public class ExaminerServiceImpl implements ExaminerService {
 
     public Collection<Question> getQuestions(int amount) {
         Collection<Question> randomQuestion = new ArrayList<>();
-        while (randomQuestion.size() <= amount) {
-            randomQuestion = new ArrayList<>(List.of(questionService.getRandomQuestion()));
+        while (randomQuestion.size() < amount) {
+            randomQuestion.add(questionService.getRandomQuestion());
         }
-        if (questionService.getAll().size() < amount) {
+        if (questionService.getAll().size() < amount || amount<= 0) {
             throw new BadRequest();
         }
         return randomQuestion;
+
+
+
+
+
     }
 
 }
