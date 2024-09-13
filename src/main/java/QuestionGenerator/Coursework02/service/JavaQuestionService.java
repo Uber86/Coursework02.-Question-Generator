@@ -35,8 +35,8 @@ public class JavaQuestionService implements QuestionService{
     public Question remove(Question question) {
         if (question != null) {
             questions.remove(question);
-        }else throw new QuestionNotFound();
-        return question;
+        }
+        throw new QuestionNotFound();
     }
 
     @Override
