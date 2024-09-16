@@ -2,6 +2,7 @@ package QuestionGenerator.Coursework02.controller;
 
 import QuestionGenerator.Coursework02.model.Question;
 import QuestionGenerator.Coursework02.service.JavaQuestionService;
+import QuestionGenerator.Coursework02.service.MathQuestionService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,21 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 
-
 @RestController
 @RequestMapping("/exam/java")
-public class JavaQuestionController {
+public class MathQuestionController {
 
+    private final MathQuestionService service;
 
-    private final JavaQuestionService service;
-
-    public JavaQuestionController( JavaQuestionService service) {
+    public MathQuestionController( MathQuestionService service) {
         this.service = service;
     }
 
-    @GetMapping (path = "/add")
+    @GetMapping(path = "/add")
     public void addQuestion(@RequestParam String question,
-                                @RequestParam String answer) {
+                            @RequestParam String answer) {
         service.add(question, answer);
     }
 
@@ -37,4 +36,5 @@ public class JavaQuestionController {
     public Collection<Question> getQuestion() {
         return service.getAll();
     }
+
 }
