@@ -1,0 +1,22 @@
+Hello my teacher!!!
+Welcome this is my job!
+
+    ,----..
+   /   /   \   .--.--.    .--.--.
+  /   .     : /  /    '. /  /    '.
+ .   /   ;.  \  :  /`. /|  :  /`. /
+.   ;   /  ` ;  |  |--` ;  |  |--`
+;   |  ; \ ; |  :  ;_   |  :  ;_
+|   :  | ; | '\  \    `. \  \    `.
+.   |  ' ' ' : `----.   \ `----.   \
+'   ;  \; /  | __ \  \  | __ \  \  |
+ \   \  ',  / /  /`--'  //  /`--'  /
+  ;   :    / '--'.     /'--'.     /
+   \   \ .'    `--'---'   `--'---'
+    `---`
+
+
+Spring Boot: ${spring-boot.version}
+Application name: ${spring.application.name}
+Application mode: ${application.mode}
+
